@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Randy Meaney</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="social-icons" id="header-social"></div>
+    <div class="header-inner">
+      <div class="logo-row">
+        <img class="cat-logo" src="cat.png" alt="Cat illustration" />
+        <div class="title-block">
+          <h1>Randy Meaney</h1>
+          <p class="tagline">
+            sweet, fun, slightly wacky, usually happy<br>
+            handmade jewelry, knits, yarn, and other things
+          </p>
+        </div>
+      </div>
+      <nav>
+        <a href="/">Shop</a>
+        <a href="/about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== ABOUT RANDY ===== -->
+    <section id="about" class="about-section">
+      <div class="about-inner">
+        <div class="about-photo-col" id="about-photo-col" style="display:none">
+          <img class="about-photo" id="about-photo-img" src="" alt="Randy Meaney" />
+        </div>
+        <div class="about-text-col">
+          <h2>About Randy</h2>
+          <div class="about-body" id="about-body"></div>
+          <div class="about-social-links" id="about-social-links"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHERE TO FIND ME ===== -->
+    <section id="shops-section" class="shops-section" style="display:none">
+      <h2 class="section-title">Find My Work</h2>
+      <div class="shops-grid" id="shops-grid"></div>
+    </section>
+
+    <!-- ===== HAVE A QUESTION? ===== -->
+    <section class="questions-section">
+      <h2>Have a Question?</h2>
+      <div class="questions-grid">
+
+        <div class="question-card" id="special-orders-card" style="display:none">
+          <h3>Special Orders &amp; Repairs</h3>
+          <p id="special-orders-body"></p>
+        </div>
+
+        <div class="question-card" id="returns-card" style="display:none">
+          <h3>Returns</h3>
+          <p id="returns-body"></p>
+        </div>
+
+        <div class="question-card">
+          <h3>Get in Touch</h3>
+          <p>I'd love to hear from you! Send me an email and I'll get back to you as soon as I can.</p>
+          <a id="contact-link" href="mailto:placeholder@email.com" class="contact-btn">
+            Send Me an Email
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2024 Randy Meaney &nbsp;·&nbsp; Handmade with love</p>
+    <a href="/admin" class="admin-link">Admin</a>
+  </footer>
+
+  <script src="js/about.js"></script>
+</body>
+</html>

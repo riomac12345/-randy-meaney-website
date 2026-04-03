@@ -1,0 +1,90 @@
+============================================================
+  RANDY MEANEY WEBSITE — SETUP GUIDE
+  (Step-by-step, no tech experience needed!)
+============================================================
+
+WHAT YOU NEED BEFORE STARTING:
+  1. A free Netlify account  →  netlify.com  (sign up with email)
+  2. A Stripe account        →  stripe.com   (sign up with email & bank info)
+
+============================================================
+STEP 1 — GET YOUR STRIPE KEYS
+============================================================
+
+1. Go to stripe.com and log in
+2. Click "Developers" in the top menu
+3. Click "API keys"
+4. Copy the "Publishable key" (starts with pk_live_...)
+5. Copy the "Secret key" (starts with sk_live_...)
+   → Keep these safe, like a password!
+
+============================================================
+STEP 2 — DEPLOY TO NETLIFY
+============================================================
+
+1. Go to netlify.com and log in
+2. Click "Add new site" → "Deploy manually"
+3. Drag the entire "randy-meaney-website" FOLDER onto the page
+4. Wait a moment — your site is now live!
+5. Netlify gives you a free link like: https://random-name.netlify.app
+   (You can rename it in Site Settings → Change site name)
+
+============================================================
+STEP 3 — SET UP YOUR SECRET SETTINGS
+============================================================
+
+In Netlify, go to:
+  Site Settings → Environment Variables → Add a variable
+
+Add these THREE variables:
+
+  Variable name: ADMIN_PASSWORD
+  Value: (choose your own password — something easy to remember!)
+
+  Variable name: STRIPE_SECRET_KEY
+  Value: (paste your Stripe secret key from Step 1)
+
+  Variable name: STRIPE_PUBLISHABLE_KEY
+  Value: (paste your Stripe publishable key from Step 1)
+
+After adding all three, click "Deploy site" to restart it.
+
+============================================================
+STEP 4 — MANAGING YOUR SHOP
+============================================================
+
+To add/edit your jewelry items:
+1. Go to YourSite.netlify.app/admin
+2. Enter your ADMIN_PASSWORD
+3. You'll see 12 slots — fill in as many as you like:
+   - Click the photo area to upload a picture
+   - Type the item name
+   - Enter the price
+   - Add a short description (optional)
+4. Click "Save All Changes" when done
+5. Your site updates right away!
+
+============================================================
+STEP 5 — SHARE YOUR LINK
+============================================================
+
+Copy your Netlify link (e.g. https://randymeaney.netlify.app)
+and paste it into your Instagram bio or Facebook profile!
+
+============================================================
+CUSTOM DOMAIN (OPTIONAL)
+============================================================
+
+If you want a custom address like randymeaney.com (~$12/year):
+1. Buy a domain at namecheap.com or godaddy.com
+2. In Netlify: Site Settings → Domain Management → Add domain
+3. Follow Netlify's instructions to connect it
+
+============================================================
+NEED HELP?
+============================================================
+
+Netlify Help:  docs.netlify.com
+Stripe Help:   support.stripe.com
+
+============================================================
