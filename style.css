@@ -481,17 +481,17 @@ nav a.active { color: var(--accent); }
 
 .this-month-label {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 600;
   color: var(--brown-dark);
-  letter-spacing: 2px;
+  letter-spacing: 0;
 }
 
 .this-month-ellipsis {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
+  font-size: 2rem;
   color: var(--border);
-  letter-spacing: 1px;
+  letter-spacing: 0;
 }
 
 /* ===== Product Cards ===== */
