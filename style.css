@@ -482,7 +482,6 @@ nav a.active { color: var(--accent); }
 .this-month-label {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.6rem;
-  font-style: italic;
   color: var(--brown-dark);
   letter-spacing: 2px;
 }
