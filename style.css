@@ -490,7 +490,7 @@ nav a.active { color: var(--accent); }
 .this-month-ellipsis {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2rem;
-  color: var(--border);
+  color: var(--brown-dark);
   letter-spacing: 0;
 }
 
