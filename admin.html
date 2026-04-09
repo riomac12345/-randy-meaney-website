@@ -61,12 +61,7 @@
           <input type="url" id="instagram-url" class="admin-input"
                  placeholder="https://www.instagram.com/yourhandle/" />
         </div>
-        <div class="slot-field" style="margin-top:10px">
-          <label class="slot-label" for="facebook-url">Facebook</label>
-          <input type="url" id="facebook-url" class="admin-input"
-                 placeholder="https://www.facebook.com/yourpage" />
-        </div>
-        <p class="hint">These appear as icons in the top-left of your site and as links on your About page.</p>
+        <p class="hint">This appears as an icon in the top-left of your site and as a link on your About page.</p>
       </section>
 
       <!-- About You -->
@@ -94,6 +89,14 @@
         <textarea id="shops-text" class="admin-input admin-textarea"
                   placeholder="Shop Name&#10;123 Main St, City&#10;&#10;Another Shop&#10;456 Oak Ave, Town"></textarea>
         <p class="hint">Enter each shop's name on one line, then the address on the next. Leave a blank line between shops.</p>
+      </section>
+
+      <!-- Upcoming Events -->
+      <section class="settings-section">
+        <h2>Upcoming Events</h2>
+        <p class="hint">Add craft fairs, markets, or any event where people can find your work. Past events are automatically hidden on the site.</p>
+        <div id="events-list" class="events-admin-list"></div>
+        <button type="button" id="add-event-btn" class="add-event-btn">+ Add Event</button>
       </section>
 
       <!-- Special Orders -->

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Randy Meaney — Handmade Jewelry</title>
+  <title>Upcoming Events — Randy Meaney</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
@@ -15,10 +15,6 @@
   <!-- ===== HEADER ===== -->
   <header>
     <div class="social-icons" id="header-social"></div>
-    <button class="cart-icon-btn" id="cart-icon-btn" aria-label="Open cart">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1l-1 12a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1L20 8a1 1 0 0 0-1-1zm-9-1a2 2 0 0 1 4 0v1h-4zm6 5a1 1 0 1 1-2 0v-1h2zm-6 0a1 1 0 1 1-2 0v-1h2z"/></svg>
-      <span class="cart-count" id="cart-count" style="display:none">0</span>
-    </button>
     <div class="header-inner">
       <div class="logo-row">
         <div class="title-block">
@@ -33,28 +29,34 @@
       <nav>
         <a href="/">Shop</a>
         <a href="/about">About</a>
-        <a href="/events">Upcoming Events</a>
+        <a href="/events" class="active">Upcoming Events</a>
       </nav>
     </div>
   </header>
 
   <main>
 
-    <!-- ===== SHOP SECTION ===== -->
-    <section id="shop">
-      <div class="shop-ornament">
-        <span class="shop-ornament-line"></span>
-        <span class="shop-ornament-glyph">✦</span>
-        <span class="shop-ornament-line"></span>
-      </div>
+    <!-- ===== UPCOMING EVENTS ===== -->
+    <section id="events-section" class="events-section" style="display:none">
+      <h2 class="section-title">Upcoming Events</h2>
+      <p class="section-subtitle" id="events-subtitle"></p>
+      <div class="events-list" id="events-list"></div>
+    </section>
 
-      <div class="this-month-heading" id="this-month-heading" style="display:none">
-        <span class="this-month-label">This Month</span><span class="this-month-ellipsis">…</span>
-      </div>
+    <!-- ===== DIVIDER ===== -->
+    <div id="events-divider" class="events-page-divider" style="display:none">
+      <span class="events-page-divider-icon">✦</span>
+    </div>
 
-      <div class="products-grid" id="products-grid">
-        <p class="grid-message">Loading shop...</p>
-      </div>
+    <!-- ===== WHERE TO FIND ME ===== -->
+    <section id="shops-section" class="shops-section" style="display:none">
+      <h2 class="section-title">Find My Work</h2>
+      <div class="shops-grid" id="shops-grid"></div>
+    </section>
+
+    <!-- ===== NO CONTENT PLACEHOLDER ===== -->
+    <section id="no-content-section" class="no-content-section" style="display:none">
+      <p>Check back soon for upcoming events and shop locations!</p>
     </section>
 
   </main>
@@ -67,7 +69,7 @@
   </footer>
 
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
-  <script src="js/main.js"></script>
+  <script src="js/events.js"></script>
   <script src="js/version.js"></script>
 </body>
 </html>

@@ -6,7 +6,8 @@
   <title>About — Randy Meaney</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -16,9 +17,9 @@
     <div class="social-icons" id="header-social"></div>
     <div class="header-inner">
       <div class="logo-row">
-        <img class="cat-logo" src="cat.png" alt="Cat illustration" />
         <div class="title-block">
-          <h1>Randy Meaney</h1>
+          <h1><img src="cat.png" class="cat-graphic" alt="" aria-hidden="true">Randy Meaney</h1>
+          <p class="location-subtitle"><span class="location-heart">♥</span> Santa Barbara, CA</p>
           <p class="tagline">
             sweet, fun, slightly wacky, usually happy<br>
             handmade jewelry, knits, yarn, and other things
@@ -27,7 +28,8 @@
       </div>
       <nav>
         <a href="/">Shop</a>
-        <a href="/about">About</a>
+        <a href="/about" class="active">About</a>
+        <a href="/events">Upcoming Events</a>
       </nav>
     </div>
   </header>
@@ -41,17 +43,11 @@
           <img class="about-photo" id="about-photo-img" src="" alt="Randy Meaney" />
         </div>
         <div class="about-text-col">
-          <h2>About Randy</h2>
+          <h2>About Me</h2>
           <div class="about-body" id="about-body"></div>
           <div class="about-social-links" id="about-social-links"></div>
         </div>
       </div>
-    </section>
-
-    <!-- ===== WHERE TO FIND ME ===== -->
-    <section id="shops-section" class="shops-section" style="display:none">
-      <h2 class="section-title">Find My Work</h2>
-      <div class="shops-grid" id="shops-grid"></div>
     </section>
 
     <!-- ===== HAVE A QUESTION? ===== -->
@@ -84,10 +80,13 @@
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2024 Randy Meaney &nbsp;·&nbsp; Handmade with love</p>
+    <p>© <span id="footer-year"></span> Randy Meaney</p>
     <a href="/admin" class="admin-link">Admin</a>
+    <p class="site-version" id="site-version"></p>
   </footer>
 
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script src="js/about.js"></script>
+  <script src="js/version.js"></script>
 </body>
 </html>

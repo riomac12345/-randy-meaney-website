@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin — Listings</title>
+  <title>Admin — Randy Meaney Shop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
@@ -15,6 +15,7 @@
   <!-- ===== PASSWORD SCREEN ===== -->
   <div id="password-screen" class="password-screen">
     <div class="password-box">
+      <a href="/" class="password-box-exit" aria-label="Back to shop">✕</a>
       <img src="cat.png" alt="Cat illustration" style="height:100px;width:auto;" />
       <h2>Shop Manager</h2>
       <p>Enter your password to update your shop</p>
@@ -40,27 +41,101 @@
     </header>
 
     <nav class="admin-page-nav">
-      <a href="/admin-settings" class="admin-page-tab">Settings</a>
-      <a href="/admin" class="admin-page-tab active">Listings</a>
+      <a href="#" class="admin-page-tab active" data-tab="listings">Listings</a>
+      <a href="#" class="admin-page-tab"        data-tab="settings">Settings</a>
     </nav>
 
     <main class="admin-main">
 
-      <section class="products-section">
-        <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--brown-dark);margin-bottom:6px;">Your Listings</h2>
-        <p class="hint">Add as many listings as you like. Each one can have multiple photos.</p>
+      <!-- ===== LISTINGS TAB ===== -->
+      <div id="section-listings">
+        <section class="products-section">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--brown-dark);margin-bottom:6px;">Your Listings</h2>
+          <p class="hint">Add as many listings as you like. Each one can have multiple photos. Click a photo to view it larger.</p>
 
-        <div class="admin-grid" id="admin-grid"></div>
+          <div class="admin-grid" id="admin-grid"></div>
 
-        <div class="add-listing-section">
-          <button id="add-listing-btn" class="add-listing-btn">+ Add New Listing</button>
-        </div>
-      </section>
+          <div class="add-listing-section">
+            <button id="add-listing-btn" class="add-listing-btn">+ Add New Listing</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ===== SETTINGS TAB ===== -->
+      <div id="section-settings" style="display:none">
+
+        <!-- Upcoming Events -->
+        <section class="settings-section">
+          <h2>Upcoming Events</h2>
+          <p class="hint">Add craft fairs, markets, or any event where people can find your work. Past events are automatically hidden on the site.</p>
+          <div id="events-list" class="events-admin-list"></div>
+          <button type="button" id="add-event-btn" class="add-event-btn">+ Add Event</button>
+        </section>
+
+        <!-- Contact Email -->
+        <section class="settings-section">
+          <h2>Your Contact Email</h2>
+          <input type="email" id="contact-email" class="admin-input" placeholder="your@email.com" />
+          <p class="hint">Customers will email you at this address with questions.</p>
+        </section>
+
+        <!-- Social Media -->
+        <section class="settings-section">
+          <h2>Social Media Links</h2>
+          <div class="slot-field">
+            <label class="slot-label" for="instagram-url">Instagram</label>
+            <input type="url" id="instagram-url" class="admin-input"
+                   placeholder="https://www.instagram.com/yourhandle/" />
+          </div>
+          <p class="hint">This appears as an icon in the top-left of your site and as a link on your About page.</p>
+        </section>
+
+        <!-- About You -->
+        <section class="settings-section">
+          <h2>About You</h2>
+          <label class="slot-label">Your Photo</label>
+          <div class="about-photo-preview" id="about-photo-preview">
+            <p class="no-photos-hint">No photo uploaded yet.</p>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+            <button type="button" class="add-photo-btn" id="about-photo-btn">Upload / Change Photo</button>
+            <button type="button" class="remove-about-photo-btn" id="remove-about-photo-btn" style="display:none">Remove Photo</button>
+          </div>
+          <input type="file" accept="image/*" id="about-photo-file" style="display:none" />
+          <div class="slot-field">
+            <label class="slot-label" for="about-text">About Text</label>
+            <textarea id="about-text" class="admin-input admin-textarea"
+                      placeholder="Write a little about yourself and your work..."></textarea>
+          </div>
+        </section>
+
+        <!-- Where to Find Me -->
+        <section class="settings-section">
+          <h2>Where to Find Me</h2>
+          <textarea id="shops-text" class="admin-input admin-textarea"
+                    placeholder="Shop Name&#10;123 Main St, City&#10;&#10;Another Shop&#10;456 Oak Ave, Town"></textarea>
+          <p class="hint">Enter each shop's name on one line, then the address on the next. Leave a blank line between shops.</p>
+        </section>
+
+        <!-- Special Orders -->
+        <section class="settings-section">
+          <h2>Special Orders &amp; Repairs</h2>
+          <textarea id="special-orders-text" class="admin-input admin-textarea" style="min-height:80px"></textarea>
+        </section>
+
+        <!-- Returns Policy -->
+        <section class="settings-section">
+          <h2>Returns Policy</h2>
+          <textarea id="returns-text" class="admin-input admin-textarea"></textarea>
+        </section>
+
+
+      </div>
 
     </main>
 
     <div id="save-notification" class="save-notification" style="display:none">
-      Saved! Your listings have been updated.
+      Saved! Your changes have been updated.
     </div>
     <div id="loading-overlay" class="loading-overlay" style="display:none">
       Saving your changes...

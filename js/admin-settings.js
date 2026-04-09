@@ -64,13 +64,13 @@ async function loadData() {
   const s = siteData.settings;
   setVal('contact-email',       s.contactEmail      || '');
   setVal('instagram-url',       s.instagramUrl       || '');
-  setVal('facebook-url',        s.facebookUrl        || '');
   setVal('about-text',          s.aboutText          || '');
   setVal('shops-text',          s.shopsText          || '');
   setVal('special-orders-text', s.specialOrdersText  || '');
   setVal('returns-text',        s.returnsText        || '');
 
   refreshAboutPhotoPreview();
+  renderEventsList();
 }
 
 function setVal(id, val) {
@@ -137,12 +137,12 @@ function collectFormValues() {
   const s = siteData.settings;
   s.contactEmail      = getVal('contact-email');
   s.instagramUrl      = getVal('instagram-url');
-  s.facebookUrl       = getVal('facebook-url');
   s.aboutText         = getVal('about-text');
   s.shopsText         = getVal('shops-text');
   s.specialOrdersText = getVal('special-orders-text');
   s.returnsText       = getVal('returns-text');
   // aboutPhoto tracked live in siteData.settings.aboutPhoto
+  // events tracked live in siteData.settings.events
 }
 
 function getVal(id) {
@@ -177,6 +177,73 @@ function showNotification() {
   const n = document.getElementById('save-notification');
   n.style.display = 'block';
   setTimeout(() => { n.style.display = 'none'; }, 3500);
+}
+
+// ─── Upcoming Events ──────────────────────────────────────────────────────────
+
+document.getElementById('add-event-btn').addEventListener('click', () => {
+  if (!Array.isArray(siteData.settings.events)) siteData.settings.events = [];
+  siteData.settings.events.push({ name: '', date: '', location: '' });
+  renderEventsList();
+  // Focus the name field of the new row
+  const rows = document.querySelectorAll('.event-admin-row');
+  const last = rows[rows.length - 1];
+  if (last) last.querySelector('.event-name-input')?.focus();
+});
+
+function renderEventsList() {
+  const list = document.getElementById('events-list');
+  if (!list) return;
+  if (!Array.isArray(siteData.settings.events)) siteData.settings.events = [];
+
+  list.innerHTML = '';
+
+  siteData.settings.events.forEach((ev, i) => {
+    const row = document.createElement('div');
+    row.className = 'event-admin-row';
+
+    const nameInput = document.createElement('input');
+    nameInput.type        = 'text';
+    nameInput.className   = 'admin-input event-name-input';
+    nameInput.placeholder = 'Event name (e.g. Santa Barbara Farmers Market)';
+    nameInput.value       = ev.name || '';
+    nameInput.addEventListener('input', () => { siteData.settings.events[i].name = nameInput.value; });
+
+    const dateInput = document.createElement('input');
+    dateInput.type      = 'date';
+    dateInput.className = 'admin-input event-date-input';
+    dateInput.value     = ev.date || '';
+    dateInput.addEventListener('change', () => { siteData.settings.events[i].date = dateInput.value; });
+
+    const locInput = document.createElement('input');
+    locInput.type        = 'text';
+    locInput.className   = 'admin-input event-location-input';
+    locInput.placeholder = 'Location (optional, e.g. Downtown Santa Barbara)';
+    locInput.value       = ev.location || '';
+    locInput.addEventListener('input', () => { siteData.settings.events[i].location = locInput.value; });
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.type      = 'button';
+    deleteBtn.className = 'delete-event-btn';
+    deleteBtn.textContent = 'Remove';
+    deleteBtn.addEventListener('click', () => {
+      siteData.settings.events.splice(i, 1);
+      renderEventsList();
+    });
+
+    row.appendChild(nameInput);
+    row.appendChild(dateInput);
+    row.appendChild(locInput);
+    row.appendChild(deleteBtn);
+    list.appendChild(row);
+  });
+
+  if (!siteData.settings.events.length) {
+    const empty = document.createElement('p');
+    empty.className   = 'hint';
+    empty.textContent = 'No upcoming events yet. Click "+ Add Event" to add one.';
+    list.appendChild(empty);
+  }
 }
 
 // ─── Logout ───────────────────────────────────────────────────────────────────

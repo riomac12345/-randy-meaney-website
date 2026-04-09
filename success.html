@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="style.css" />
   <style>
     .success-page {
@@ -68,18 +69,21 @@
   <div class="success-page">
     <div class="success-box">
       <div class="success-icon">&#10003;</div>
-      <h1>Thank You!</h1>
+      <h1>Thank You So Much!</h1>
       <p>
-        Your order has been placed and payment received.
-        You'll get a confirmation email shortly.
-        Thank you so much for supporting handmade!
+        Your order is on its way to being loved. Each piece is handmade with care,
+        and I'm so happy it's found a new home. You'll receive a confirmation email shortly.
       </p>
+      <p style="font-style:italic;font-size:0.95rem;">— Randy</p>
       <a href="/" class="back-btn">Back to the Shop</a>
     </div>
   </div>
 
   <footer>
-    <p>© 2024 Randy Meaney &nbsp;·&nbsp; Handmade with love</p>
+    <p>© <span id="footer-year"></span> Randy Meaney</p>
+    <p class="site-version" id="site-version"></p>
   </footer>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+  <script src="js/version.js"></script>
 </body>
 </html>

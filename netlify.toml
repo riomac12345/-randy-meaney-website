@@ -1,4 +1,5 @@
 [build]
+  command = "node netlify/build/version.js"
   publish = "."
   functions = "netlify/functions"
 
@@ -12,18 +13,26 @@
   from = "/admin"
   to = "/admin-listings.html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/admin-listings"
   to = "/admin-listings.html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/admin-settings"
-  to = "/admin.html"
+  to = "/admin-listings.html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/about"
   to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/events"
+  to = "/events.html"
   status = 200

@@ -10,6 +10,7 @@
 }
 
 .password-box {
+  position: relative;
   background: var(--bg-card);
   border: 2px solid var(--border);
   border-radius: 20px;
@@ -19,6 +20,20 @@
   width: 90%;
   box-shadow: 0 8px 30px var(--shadow);
 }
+
+.password-box-exit {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 1.1rem;
+  color: var(--brown-mid);
+  text-decoration: none;
+  line-height: 1;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.password-box-exit:hover { opacity: 1; }
 
 .password-box h2 {
   font-family: 'Cormorant Garamond', serif;
@@ -378,6 +393,18 @@
 
 .delete-product-btn:hover { background: #fdecea; }
 
+/* Sold toggle */
+.sold-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--brown-mid);
+  cursor: pointer;
+  margin-top: 4px;
+}
+.sold-checkbox { width: 16px; height: 16px; cursor: pointer; accent-color: var(--accent); }
+
 /* Add New Listing button */
 .add-listing-section {
   text-align: center;
@@ -460,6 +487,146 @@
 }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Photo thumbnail cursor */
+.photo-thumb-img {
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.photo-thumb-img:hover { opacity: 0.82; }
+
+/* Photo Lightbox */
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+.photo-lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-inner {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-img {
+  max-width: 88vw;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 0 6px 36px rgba(0,0,0,0.6);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.3); }
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  padding: 0;
+  line-height: 1;
+}
+.lightbox-prev:hover,
+.lightbox-next:hover { background: rgba(255,255,255,0.3); }
+.lightbox-prev { left: -56px; }
+.lightbox-next { right: -56px; }
+
+.lightbox-dots {
+  display: flex;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.lightbox-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.lightbox-dot.active { background: #fff; }
+
+/* Mobile admin layout */
+@media (max-width: 600px) {
+  .admin-main { padding: 0 14px 40px; }
+  .settings-section { padding: 18px 14px; }
+
+  .event-admin-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .event-admin-row .admin-input {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 10px 12px;
+  }
+
+  .event-admin-row input[type="date"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  .event-admin-row .delete-event-btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
 
 /* Loading overlay */
 .loading-overlay {

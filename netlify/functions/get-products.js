@@ -5,7 +5,6 @@ const DEFAULT_DATA = {
   settings: {
     contactEmail: '',
     instagramUrl: 'https://www.instagram.com/randy.meaney/',
-    facebookUrl:  'https://www.facebook.com/randy.arnold.meaney',
     aboutPhoto:   '',
     aboutText:    "I think I am a natural born maker / creator / concoctor of things. I am not great at learning anything super complex, but just park me in front of some beads or yarn or wire? metal? chain? string? and the magic just begins. Lots of times the materials somehow migrate toward the things they are best paired with. In that case, I am just happily the keeper of the mess while the process is doing its thing.",
     shopsText:    "Sisters Gifts and Home\n349 Bell Street, Los Alamos\n\nLos Alamos Gallery\n515 Bell Street, Los Alamos\n\nThe Yes Store\n1100 State Street, Santa Barbara",
