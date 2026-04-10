@@ -833,7 +833,12 @@ footer {
   border-radius: 12px;
   padding: 20px 28px;
   min-width: 200px;
+  width: 200px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 80px;
   box-shadow: 0 2px 10px var(--shadow);
 }
 
