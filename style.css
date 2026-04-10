@@ -1212,7 +1212,7 @@ footer {
   .logo-row { margin-bottom: 12px; }
   .title-block h1 { font-size: 2.8rem; letter-spacing: 3px; }
   .cat-graphic { height: 2.35em; top: -0.18em; }
-  .location-subtitle { font-size: 0.95rem; letter-spacing: 2px; }
+  .location-subtitle { font-size: 0.95rem; letter-spacing: 2px; margin-top: -20px; }
   .tagline { font-size: 1.1rem; }
 
   nav { gap: 20px; }
@@ -1222,7 +1222,7 @@ footer {
   .title-block h1 { font-size: 2rem; letter-spacing: 2px; }
   .cat-graphic { height: 2.15em; top: -0.18em; }
   .tagline { font-size: 0.95rem; }
-  .location-subtitle { font-size: 0.85rem; }
+  .location-subtitle { font-size: 0.85rem; margin-top: -12px; }
 }
 
 /* ===== Events Page ===== */
