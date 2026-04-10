@@ -295,14 +295,28 @@ function initCart() {
   renderCartItems();
 }
 
+let scrollLockCount = 0;
+
+function lockScroll() {
+  scrollLockCount++;
+  document.body.style.overflow = 'hidden';
+}
+
+function unlockScroll() {
+  scrollLockCount = Math.max(0, scrollLockCount - 1);
+  if (scrollLockCount === 0) document.body.style.overflow = '';
+}
+
 function openCart() {
   document.getElementById('cart-overlay').classList.add('open');
   document.getElementById('cart-drawer').classList.add('open');
+  lockScroll();
 }
 
 function closeCart() {
   document.getElementById('cart-overlay').classList.remove('open');
   document.getElementById('cart-drawer').classList.remove('open');
+  unlockScroll();
 }
 
 function updateCartCount() {
@@ -424,8 +438,8 @@ function showProductModal(product) {
       </div>
     `;
     document.body.appendChild(modal);
-    document.getElementById('product-modal-close').addEventListener('click', () => modal.classList.remove('open'));
-    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+    document.getElementById('product-modal-close').addEventListener('click', () => { modal.classList.remove('open'); unlockScroll(); });
+    modal.addEventListener('click', e => { if (e.target === modal) { modal.classList.remove('open'); unlockScroll(); } });
   }
 
   // Carousel
@@ -502,6 +516,7 @@ function showProductModal(product) {
   }
 
   modal.classList.add('open');
+  lockScroll();
 }
 
 // ─── Cart item detail modal ───────────────────────────────────────────────────
@@ -525,8 +540,8 @@ function showCartItemDetail(item) {
       </div>
     `;
     document.body.appendChild(modal);
-    document.getElementById('cart-detail-close').addEventListener('click', () => modal.classList.remove('open'));
-    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+    document.getElementById('cart-detail-close').addEventListener('click', () => { modal.classList.remove('open'); unlockScroll(); });
+    modal.addEventListener('click', e => { if (e.target === modal) { modal.classList.remove('open'); unlockScroll(); } });
   }
 
   const imgWrap = document.getElementById('cart-detail-img-wrap');
@@ -537,6 +552,7 @@ function showCartItemDetail(item) {
   document.getElementById('cart-detail-desc').textContent  = item.description || '';
   document.getElementById('cart-detail-price').textContent = `$${parseFloat(item.price || 0).toFixed(2)}`;
   modal.classList.add('open');
+  lockScroll();
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
