@@ -30,6 +30,7 @@ exports.handler = async function (event) {
         quantity: item.quantity || 1,
       })),
       mode: 'payment',
+      shipping_address_collection: { allowed_countries: ['US'] },
       success_url: `${new URL(origin).origin}/success.html`,
       cancel_url:  `${new URL(origin).origin}/`,
     });
