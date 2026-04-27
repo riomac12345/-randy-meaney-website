@@ -31,6 +31,7 @@ exports.handler = async function (event) {
       })),
       mode: 'payment',
       shipping_address_collection: { allowed_countries: ['US'] },
+      automatic_tax: { enabled: true },
       success_url: `${new URL(origin).origin}/success.html`,
       cancel_url:  `${new URL(origin).origin}/`,
     });
