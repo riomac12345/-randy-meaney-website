@@ -49,7 +49,7 @@
       </div>
 
       <div class="this-month-heading" id="this-month-heading" style="display:none">
-        <span class="this-month-label">This Month</span><span class="this-month-ellipsis">…</span>
+        <span class="this-month-label">Now Showing</span><span class="this-month-ellipsis">…</span>
       </div>
 
       <div class="products-grid" id="products-grid">
@@ -61,6 +61,14 @@
 
   <!-- ===== FOOTER ===== -->
   <footer>
+    <div class="email-signup">
+      <p class="email-signup-text">Sign up for my email and I'll shoot you a note when I put new things on the site.</p>
+      <form class="email-signup-form" id="email-signup-form">
+        <input type="email" class="email-signup-input" id="email-signup-input" placeholder="Your email address" required />
+        <button type="submit" class="email-signup-btn">Subscribe</button>
+      </form>
+      <p class="email-signup-msg" id="email-signup-msg"></p>
+    </div>
     <p>© <span id="footer-year"></span> Randy Meaney</p>
     <a href="/admin" class="admin-link">Admin</a>
     <p class="site-version" id="site-version"></p>
@@ -69,5 +77,6 @@
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   <script src="js/main.js"></script>
   <script src="js/version.js"></script>
+  <script src="js/subscribe.js"></script>
 </body>
 </html>
