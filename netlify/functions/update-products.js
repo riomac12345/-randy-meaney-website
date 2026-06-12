@@ -13,11 +13,7 @@ exports.handler = async function (event) {
     if (password !== correct) return { statusCode: 401, body: 'Unauthorized' };
     if (!data || !Array.isArray(data.products)) return { statusCode: 400, body: 'Invalid data' };
 
-    const store = getStore({
-      name:   'shop-data',
-      siteID: process.env.NETLIFY_SITE_ID,
-      token:  process.env.NETLIFY_TOKEN,
-    });
+    const store = getStore('shop-data');
 
     await store.setJSON('products', data);
 

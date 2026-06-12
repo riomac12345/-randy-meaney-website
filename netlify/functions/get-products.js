@@ -20,11 +20,7 @@ exports.handler = async function (event) {
   };
 
   try {
-    const store = getStore({
-      name:   'shop-data',
-      siteID: process.env.NETLIFY_SITE_ID,
-      token:  process.env.NETLIFY_TOKEN,
-    });
+    const store = getStore('shop-data');
     const data = await store.get('products', { type: 'json' });
     return { statusCode: 200, headers, body: JSON.stringify(data || DEFAULT_DATA) };
   } catch (err) {
