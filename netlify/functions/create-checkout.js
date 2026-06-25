@@ -31,7 +31,7 @@ exports.handler = async function (event) {
       })),
       mode: 'payment',
       shipping_address_collection: { allowed_countries: ['US'] },
-      shipping_options: [{ shipping_rate: 'shr_1TQu9vA6CoUlHOJ9Wv9swb7W' }],
+      shipping_options: [{ shipping_rate: 'shr_1TmIAkA6CoUlHOJ9hY2mZDpl' }],
       automatic_tax: { enabled: true },
       success_url: `${new URL(origin).origin}/success.html`,
       cancel_url:  `${new URL(origin).origin}/`,
